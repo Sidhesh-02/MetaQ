@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Home, User, LayoutGrid, Book, ImageIcon, Menu, Moon, Sun } from 'lucide-react';
+import { Home, User, LayoutGrid, Book, ImageIcon, Menu, Moon, Sun, X } from 'lucide-react';
 import clsx from 'clsx';
 
 export default function NavBar() {
@@ -8,25 +8,22 @@ export default function NavBar() {
   const [dark, setDark] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Load initial theme from localStorage
+  // Load theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       setDark(true);
       document.documentElement.classList.add('dark');
-    } else {
-      setDark(false);
-      document.documentElement.classList.remove('dark');
     }
   }, []);
 
-  // Sync theme changes to <html> and localStorage
+  // Sync theme changes
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
     localStorage.setItem('theme', dark ? 'dark' : 'light');
   }, [dark]);
 
-  // Detect mobile screen
+  // Detect mobile
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -36,10 +33,10 @@ export default function NavBar() {
 
   return (
     <>
-      {/* Brand (Top-left) */}
+      {/* Brand */}
       <div className="fixed top-5 left-5 z-50 text-black dark:text-white text-xl font-medium">MetaQ</div>
 
-      {/* Dark Mode Toggle (Top-right on desktop) */}
+      {/* Dark Toggle Desktop */}
       {!isMobile && (
         <button
           onClick={() => setDark(!dark)}
@@ -75,24 +72,24 @@ export default function NavBar() {
         </div>
       </nav>
 
-      {/* Hamburger (Top-right on mobile) */}
+      {/* Hamburger Button */}
       {isMobile && (
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="fixed top-4 right-4 z-50 text-white bg-white/10 p-2 rounded-full border border-white/20"
+          className="fixed top-4 right-4 z-50 text-white bg-black p-2 rounded-full border border-white/20"
         >
-          <Menu size={20} />
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       )}
 
-      {/* Slide-in Menu (Mobile only) */}
+      {/* Mobile Menu */}
       {isMobile && isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/90 z-40 p-8 pt-20 text-white space-y-6 text-lg animate-slide-down">
-          <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="#about" onClick={() => setIsOpen(false)}>About</a>
-          <a href="#work" onClick={() => setIsOpen(false)}>Work</a>
-          <a href="#blog" onClick={() => setIsOpen(false)}>Blog</a>
-          <a href="#gallery" onClick={() => setIsOpen(false)}>Gallery</a>
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-40 flex flex-col justify-center items-center gap-6 animate-slide-down">
+          <MobileNavItem icon={<Home size={20} />} text="Home" href="#home" onClick={() => setIsOpen(false)} />
+          <MobileNavItem icon={<User size={20} />} text="About" href="#about" onClick={() => setIsOpen(false)} />
+          <MobileNavItem icon={<LayoutGrid size={20} />} text="Work" href="#work" onClick={() => setIsOpen(false)} />
+          <MobileNavItem icon={<Book size={20} />} text="Blog" href="#blog" onClick={() => setIsOpen(false)} />
+          <MobileNavItem icon={<ImageIcon size={20} />} text="Gallery" href="#gallery" onClick={() => setIsOpen(false)} />
         </div>
       )}
     </>
@@ -106,6 +103,18 @@ function NavItem({ href, icon }) {
       className="p-2 rounded-full hover:bg-white/10 transition border border-transparent hover:border-white/10"
     >
       {icon}
+    </a>
+  );
+}
+
+function MobileNavItem({ icon, text, href, onClick }) {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className="flex items-center gap-3 px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition text-white text-lg"
+    >
+      {icon} {text}
     </a>
   );
 }
