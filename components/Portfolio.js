@@ -36,18 +36,21 @@ export default function Portfolio() {
   const splideRef = useRef(null);
 
   return (
-    <section className="relative bg-white dark:bg-zinc-950 py-24 px-6">
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Heading + Arrows */}
-        <div className="flex justify-between items-center mb-12">
-          <div>
-            <h2 className="text-4xl font-bold text-zinc-900 dark:text-white">
-              Work We’re Proud Of
-            </h2>
-            <p className="text-zinc-600 dark:text-zinc-400 text-lg">
-              Shopify builds and redesigns that elevate brands.
-            </p>
-          </div>
+    <section className="relative dark:border-gray-700 py-24 px-6 md:px-16 bg-gradient-to-b from-white to-zinc-50 dark:from-black dark:to-zinc-950 overflow-hidden">
+      {/* Background Blobs */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-indigo-400/20 rounded-full blur-[150px]" />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-purple-400/20 rounded-full blur-[150px]" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Heading + Arrows stacked */}
+        <div className="flex flex-col items-center gap-6 mb-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white">
+            Work We’re{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">
+              Proud Of
+            </span>
+          </h2>
+
           <div className="flex gap-3">
             <button
               onClick={() => splideRef.current?.go('<')}
@@ -87,10 +90,9 @@ export default function Portfolio() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block rounded-3xl overflow-hidden border border-zinc-300 dark:border-zinc-800 
-                           bg-white dark:bg-zinc-900 hover:shadow-lg hover:-translate-y-1 transition-all"
+                className="group block rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
               >
-                {/* Image with better clarity & shape */}
+                {/* Image */}
                 <div className="relative w-full h-72 overflow-hidden rounded-t-3xl">
                   <Image
                     src={project.image}
@@ -98,13 +100,13 @@ export default function Portfolio() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     quality={90}
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                     priority={index === 0}
                   />
                 </div>
 
-                {/* Text Content */}
-                <div className="p-6 text-left">
+                {/* Text */}
+                <div className="p-6">
                   <h3 className="text-xl font-semibold text-zinc-900 dark:text-white">
                     {project.title}
                   </h3>

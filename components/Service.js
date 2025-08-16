@@ -25,34 +25,54 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="px-6 md:px-16 py-24 bg-gradient-to-br from-amber-50 to-rose-50 dark:bg-gradient-to-br dark:from-zinc-900 dark:to-zinc-950 border-t border-zinc-100 dark:border-zinc-800">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="relative py-28 px-6 md:px-16 w-full overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900">
+      {/* Glow blobs */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-indigo-500/20 dark:bg-indigo-400/10 blur-[140px] rounded-full" />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-purple-500/20 dark:bg-purple-400/10 blur-[140px] rounded-full" />
+
+      {/* Radial light */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.65)_0%,transparent_70%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)]" />
+
+      <div className="max-w-7xl mx-auto relative z-10 text-center">
         {/* Heading */}
-        <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-6 tracking-tight">
-          Our Expertise
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+          Our{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-text">
+            Expertise
+          </span>
         </h2>
-        <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-16 leading-relaxed max-w-2xl mx-auto">
-          Everything you need to build and scale your brand — all in one place.
+        <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-20 leading-relaxed max-w-2xl mx-auto">
+          Everything you need to <span className="font-semibold text-indigo-500 dark:text-indigo-400">build</span> and{" "}
+          <span className="font-semibold text-purple-500 dark:text-purple-400">scale</span> your brand — all in one place.
         </p>
 
-        {/* Cards Grid */}
+        {/* Cards */}
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           {services.map(({ title, description, icon: Icon }, index) => (
             <div
               key={index}
-              className="group flex flex-col items-center text-center border border-transparent bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg rounded-2xl p-8 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1 hover:border-indigo-500/40"
+              className="group relative flex flex-col items-center text-center rounded-2xl p-10 
+              bg-gradient-to-b from-white/80 to-white/60 dark:from-zinc-900/80 dark:to-zinc-900/60 
+              backdrop-blur-xl border border-white/20 dark:border-zinc-800/40 
+              shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
             >
-              {/* Icon Container */}
-              <div className="mb-5 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Icon size={28} />
-              </div>
+             
 
-              <h3 className="text-lg md:text-xl font-semibold text-zinc-800 dark:text-white mb-3">
-                {title}
-              </h3>
-              <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                {description}
-              </p>
+              <div className="relative z-10 flex flex-col items-center">
+                {/* Icon */}
+                <div className="mb-6 flex items-center justify-center w-20 h-20 rounded-full 
+                bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 
+                text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Icon size={30} />
+                </div>
+
+                <h3 className="text-xl md:text-2xl font-semibold text-zinc-900 dark:text-white mb-3">
+                  {title}
+                </h3>
+                <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Home, User, LayoutGrid, Book, ImageIcon, Menu, Moon, Sun, X } from 'lucide-react';
+import { Home, LayoutGrid, Book, ImageIcon, Menu, Moon, Sun, X } from 'lucide-react';
 import clsx from 'clsx';
 
 export default function NavBar() {
@@ -49,18 +49,17 @@ export default function NavBar() {
       {/* Floating Navbar */}
       <nav
         className={clsx(
-          'fixed z-40 backdrop-blur-lg bg-black/60 border border-white/10 text-white rounded-full shadow-lg px-6 py-2 flex items-center justify-between',
+          'fixed z-40 backdrop-blur-lg bg-black/60 border border-white/10 text-white rounded-full shadow-lg py-2 flex items-center',
           isMobile
-            ? 'bottom-4 left-1/2 -translate-x-1/2 w-[95%]'
-            : 'top-4 left-1/2 -translate-x-1/2'
+            ? 'bottom-4 left-1/2 -translate-x-1/2 px-3'
+            : 'top-4 left-1/2 -translate-x-1/2 px-4'
         )}
       >
-        <div className="flex gap-4 items-center text-sm">
-          <NavItem href="#home" icon={<Home size={18} />} />
-          <NavItem href="#about" icon={<User size={18} />} />
-          <NavItem href="#work" icon={<LayoutGrid size={18} />} />
-          <NavItem href="#blog" icon={<Book size={18} />} />
-          <NavItem href="#gallery" icon={<ImageIcon size={18} />} />
+        <div className="flex gap-3 items-center text-sm">
+          <NavItem href="/" icon={<Home size={18} />} title={"Home"} />
+          <NavItem href="/work" icon={<LayoutGrid size={18} />} title={"Work"} />
+          <NavItem href="#blog" icon={<Book size={18} />} title={"Blog"} />
+          <NavItem href="#gallery" icon={<ImageIcon size={18} />} title={"Gallery"} />
           {isMobile && (
             <button
               onClick={() => setDark(!dark)}
@@ -86,7 +85,6 @@ export default function NavBar() {
       {isMobile && isOpen && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-40 flex flex-col justify-center items-center gap-6 animate-slide-down">
           <MobileNavItem icon={<Home size={20} />} text="Home" href="#home" onClick={() => setIsOpen(false)} />
-          <MobileNavItem icon={<User size={20} />} text="About" href="#about" onClick={() => setIsOpen(false)} />
           <MobileNavItem icon={<LayoutGrid size={20} />} text="Work" href="#work" onClick={() => setIsOpen(false)} />
           <MobileNavItem icon={<Book size={20} />} text="Blog" href="#blog" onClick={() => setIsOpen(false)} />
           <MobileNavItem icon={<ImageIcon size={20} />} text="Gallery" href="#gallery" onClick={() => setIsOpen(false)} />
@@ -96,13 +94,13 @@ export default function NavBar() {
   );
 }
 
-function NavItem({ href, icon }) {
+function NavItem({ href, icon, title }) {
   return (
     <a
       href={href}
-      className="p-2 rounded-full hover:bg-white/10 transition border border-transparent hover:border-white/10"
+      className="p-2 flex rounded-full hover:bg-white/10 transition border border-transparent hover:border-white/10"
     >
-      {icon}
+      {icon} <span className='ml-4 hidden md:block'>{title}</span>
     </a>
   );
 }
