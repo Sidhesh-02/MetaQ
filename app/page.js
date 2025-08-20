@@ -11,18 +11,13 @@ export default function Home() {
   
   return (
     <>
+      {/* <div className="relative max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent dark:via-green-400/40" /> */}
       <Hero/>
-      <div className="relative max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent dark:via-green-400/40" />
-      <LovedBy/>
-      <div className="relative max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent dark:via-green-400/40" />
+      {/* <LovedBy/> */}
       <Services/>
-      <div className="relative max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent dark:via-green-400/40" />
       <Portfolio/>
-      <div className="relative max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent dark:via-green-400/40" />
-      <About/>
-      {/* <Testimonials/> */}
-      <div className="relative max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent dark:via-green-400/40" />
       <Pricing/>
+      <About/>
       <Footer/>
     </>
   );

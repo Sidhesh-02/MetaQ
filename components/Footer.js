@@ -4,11 +4,13 @@ import { Github, Instagram, Twitter, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-100 dark:bg-black text-zinc-700 dark:text-zinc-300 py-10 px-6">
+    <footer className="relative bg-black py-10 px-6 dark:border-t-1 dark:border-gray-800">
+       {/* Subtle linear gradient background (dark only) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(58,0,94,0.4)] via-transparent to-transparent" />
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-4">
         
         {/* Branding */}
-        <h3 className="text-lg font-semibold text-black dark:text-white">
+        <h3 className="text-lg font-semibold text-white">
           MetaQ ❤️
         </h3>
 

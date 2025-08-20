@@ -35,7 +35,7 @@ export default function NavBar() {
     <>
       {/* Brand */}
       <div className="fixed top-5 left-5 z-50 text-black dark:text-white text-xl font-medium">MetaQ</div>
-
+      
       {/* Dark Toggle Desktop */}
       {!isMobile && (
         <button
@@ -47,7 +47,7 @@ export default function NavBar() {
       )}
 
       {/* Floating Navbar */}
-      <nav
+      {/* <nav
         className={clsx(
           'fixed z-40 backdrop-blur-lg bg-black/60 border border-white/10 text-white rounded-full shadow-lg py-2 flex items-center',
           isMobile
@@ -69,7 +69,7 @@ export default function NavBar() {
             </button>
           )}
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hamburger Button */}
       {isMobile && (
@@ -88,6 +88,8 @@ export default function NavBar() {
           <MobileNavItem icon={<LayoutGrid size={20} />} text="Work" href="#work" onClick={() => setIsOpen(false)} />
           <MobileNavItem icon={<Book size={20} />} text="Blog" href="#blog" onClick={() => setIsOpen(false)} />
           <MobileNavItem icon={<ImageIcon size={20} />} text="Gallery" href="#gallery" onClick={() => setIsOpen(false)} />
+          
+
         </div>
       )}
     </>

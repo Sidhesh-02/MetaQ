@@ -18,22 +18,16 @@ function CheckIcon() {
 
 export default function Pricing() {
   return (
-    <section className="relative dark:border-gray-700 py-24 px-6 md:px-16 bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 overflow-hidden">
-      {/* Background Blobs */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-indigo-400/20 rounded-full blur-[150px]" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-purple-400/20 rounded-full blur-[150px]" />
-
+    <section className="relative dark:border-gray-700 py-24 px-6 md:px-16 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 overflow-hidden">
+    
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-semibold text-indigo-500 dark:text-indigo-300 tracking-wide">
             Pricing
           </h2>
-          <p className="mt-2 text-4xl sm:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white">
-            Choose the right{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">
-              plan
-            </span>
+          <p className="mt-2 text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white">
+            Choose the right plan
           </p>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-zinc-600 dark:text-zinc-400">
             Simple, transparent pricing to fit every stage of your business.
