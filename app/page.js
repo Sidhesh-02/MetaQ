@@ -4,19 +4,18 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
 import Services from "@/components/Service";
-import LovedBy from "@/components/SliderAnimation";
+import Partner from "@/components/Partner";
 
 
 export default function Home() {
   
   return (
     <>
-      {/* <div className="relative max-w-6xl mx-auto h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent dark:via-green-400/40" /> */}
       <Hero/>
-      {/* <LovedBy/> */}
       <Services/>
       <Portfolio/>
       <Pricing/>
+      <Partner/>
       <About/>
       <Footer/>
     </>

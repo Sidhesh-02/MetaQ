@@ -23,8 +23,8 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-indigo-500 dark:text-indigo-300 tracking-wide">
-            Pricing
+          <h2 className="text-sm uppercase tracking-wider text-zinc-400 mb-4">
+            Our Pricing
           </h2>
           <p className="mt-2 text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white">
             Choose the right plan
@@ -38,37 +38,37 @@ export default function Pricing() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
-              name: "Hobby",
+              name: "Custom Website / Portfolio",
               price: "$29",
-              desc: "Perfect if you're just starting out.",
+              desc: "Perfect for professionals who want a unique online presence.",
               features: [
-                "25 products",
-                "Up to 10,000 subscribers",
-                "Advanced analytics",
-                "24-hour support response",
+                "Responsive, SEO-Optimized",
+                "Up to 5 Page Navigation",
+                "With - Contact Form, Whatsapp",
+                "Basic Performance & Analytics",
+                "15-day support after delivery"
               ],
               highlight: false,
             },
             {
-              name: "Pro",
+              name: "Shopify Basic Plan",
               price: "$59",
-              desc: "Best for growing businesses.",
+              desc: "Best for growing ecommerce",
               features: [
-                "100 products",
-                "50,000 subscribers",
-                "Advanced analytics",
-                "Priority email support",
-                "Basic marketing automation",
+                "Up to 100 products",
+                "Shopify setup (theme + customizations)",
+                "Payment & shipping integration",
+                "Email support",
+                "15-day support after delivery",
               ],
               highlight: true,
             },
             {
-              name: "Enterprise",
+              name: "Shopify Advanced Plan",
               price: "$99",
               desc: "For large-scale operations.",
               features: [
                 "Unlimited products",
-                "Unlimited subscribers",
                 "Advanced analytics",
                 "Dedicated support",
                 "Marketing automation",

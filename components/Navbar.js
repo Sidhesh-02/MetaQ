@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { Home, LayoutGrid, Book, ImageIcon, Menu, Moon, Sun, X } from 'lucide-react';
 import clsx from 'clsx';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,21 +35,36 @@ export default function NavBar() {
 
   return (
     <>
-      {/* Brand */}
-      <div className="fixed top-5 left-5 z-50 text-black dark:text-white text-xl font-medium">MetaQ</div>
-      
-      {/* Dark Toggle Desktop */}
-      {!isMobile && (
-        <button
-          onClick={() => setDark(!dark)}
-          className="fixed top-5 right-5 z-50 cursor-pointer text-black dark:text-white bg-white/40 dark:bg-white/10 p-2 rounded-full border border-white/20"
-        >
-          {dark ? <Moon size={18} /> : <Sun size={18} />}
-        </button>
-      )}
+      <div
+        className={clsx(
+          "fixed top-1 md:top-3 left-0 right-0 z-30 bg-transparent flex justify-between items-center px-6 md:px-10 py-4 transition-colors duration-300",
+        )}
+      >
+        {/* Logo */}
+        <Link href="/">
+          <Image
+            src="/metaq.png"
+            alt="MetaQ"
+            className="dark:invert"
+            width={40}
+            height={40}
+            priority
+          />
+        </Link>
+
+        {/* Dark Mode Toggle */}
+        {!isMobile && (
+          <button
+            onClick={() => setDark(!dark)}
+          >
+            {dark ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+        )}
+      </div>
+
 
       {/* Floating Navbar */}
-      {/* <nav
+      <nav
         className={clsx(
           'fixed z-40 backdrop-blur-lg bg-black/60 border border-white/10 text-white rounded-full shadow-lg py-2 flex items-center',
           isMobile
@@ -69,13 +86,13 @@ export default function NavBar() {
             </button>
           )}
         </div>
-      </nav> */}
+      </nav>
 
       {/* Hamburger Button */}
       {isMobile && (
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="fixed top-4 right-4 z-50 text-white bg-black p-2 rounded-full border border-white/20"
+          className="fixed top-4 right-4 z-50 p-2 "
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -84,12 +101,10 @@ export default function NavBar() {
       {/* Mobile Menu */}
       {isMobile && isOpen && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-40 flex flex-col justify-center items-center gap-6 animate-slide-down">
-          <MobileNavItem icon={<Home size={20} />} text="Home" href="#home" onClick={() => setIsOpen(false)} />
-          <MobileNavItem icon={<LayoutGrid size={20} />} text="Work" href="#work" onClick={() => setIsOpen(false)} />
+          <MobileNavItem icon={<Home size={20} />} text="Home" href="/" onClick={() => setIsOpen(false)} />
+          <MobileNavItem icon={<LayoutGrid size={20} />} text="Work" href="/work" onClick={() => setIsOpen(false)} />
           <MobileNavItem icon={<Book size={20} />} text="Blog" href="#blog" onClick={() => setIsOpen(false)} />
           <MobileNavItem icon={<ImageIcon size={20} />} text="Gallery" href="#gallery" onClick={() => setIsOpen(false)} />
-          
-
         </div>
       )}
     </>

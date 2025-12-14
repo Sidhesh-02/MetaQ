@@ -12,7 +12,7 @@ const projects = [
       "category": "Clothing & Apparel"
     },
     {
-      "title": "Four or Five",
+      "title": "FourOFive",
       "description": "Retail apparel brand offering trendy and casual fashion pieces.",
       "category": "Retail & Fashion"
     },
@@ -33,12 +33,15 @@ export default function Portfolio() {
     <section className="relative py-24 px-6 md:px-16 bg-zinc-50 dark:bg-zinc-950 overflow-hidden">
       
 
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.08] pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10 text-center">
+        <h2 className="text-sm uppercase tracking-wider text-zinc-400">
+            Our Work
+        </h2>
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-6">
           <span className="">
-            Featured Work
+            We&apos;re Proud
           </span>
         </h2>
         <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-4xl mx-auto mb-16">
@@ -52,7 +55,7 @@ export default function Portfolio() {
               href={p.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block py-10 relative overflow-hidden"
+              className="group block py-10 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-r from-purple-500/10 via-violet-500/5 to-purple-500/10 blur-2xl rounded-xl" />
 

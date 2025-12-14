@@ -33,9 +33,9 @@ export default function About() {
         </p>
 
         {/* CTA */}
-        <button className="mt-6 px-8 py-3 rounded-full border border-gray-300 text-zinc-900 bg-white hover:bg-zinc-100 dark:bg-black dark:text-white dark:border-gray-700 dark:hover:bg-zinc-900 transition font-medium">
+        <a className="cursor-pointer mt-6 px-8 py-3 rounded-full border border-gray-300 text-zinc-900 bg-white hover:bg-purple-50 dark:bg-black dark:text-white dark:border-gray-700 dark:hover:bg-zinc-900 transition font-medium">
           Connect →
-        </button>
+        </a>
       </div>
     </section>
   );
