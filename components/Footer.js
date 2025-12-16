@@ -4,8 +4,7 @@ import { Github, Instagram, Twitter, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black py-10 px-6 dark:border-t-1 dark:border-gray-800">
-       {/* Subtle linear gradient background (dark only) */}
+    <footer className="relative bg-black py-10 px-6">
       <div className="absolute inset-0 bg-gradient-to-r from-[rgba(58,0,94,0.4)] via-transparent to-transparent" />
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-4">
         
@@ -23,7 +22,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Text */}
-        <div className="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
+        <div className="mt-3 text-sm text-zinc-500 ">
           &copy; {new Date().getFullYear()} MetaQ. All rights reserved.
         </div>
       </div>
@@ -37,7 +36,7 @@ function SocialLink({ href, icon }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="p-2 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-white hover:bg-indigo-500 dark:hover:bg-indigo-500 transition-colors duration-300"
+      className="p-2 rounded-full bg-white border border-zinc-200  text-zinc-700 hover:text-white hover:bg-indigo-500  transition-colors duration-300"
     >
       {icon}
     </a>

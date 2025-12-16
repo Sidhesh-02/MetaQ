@@ -5,9 +5,12 @@ import "@splidejs/react-splide/css";
 
 export default function Partner() {
   const logos = [
-    { src: "/shopify.svg", alt: "Shopify", width: 145, height: 60 },
-    { src: "/metaads.svg", alt: "Meta Ads", width: 110, height: 70 },
-    { src: "/aisensy.png", alt: "AiSensy", width: 145, height: 65 },
+    { src: "/shopify.svg", alt: "Shopify", width: 180, height: 60 },
+    { src: "/metaads.svg", alt: "Meta Ads", width: 125, height: 70 },
+    { src: "/aisensy.png", alt: "AiSensy", width: 150, height: 65 },
+    { src: "/phonepe.png", alt: "AiSensy", width: 300, height: 65 },
+    { src: "/payu.png", alt: "AiSensy", width: 180, height: 65 },
+    { src: "/razorpay.png", alt: "AiSensy", width: 290, height: 65 },
   ];
 
   return (
@@ -20,7 +23,7 @@ export default function Partner() {
       {/* Subtle noise overlay */}
       <div className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl font-bold text-gray-200">
           Partnered with the Best
@@ -65,7 +68,7 @@ export default function Partner() {
           {logos.map((logo, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center space-y-4"
+              className="flex flex-col items-center justify-center space-y-2"
             >
               <Image
                 src={logo.src}

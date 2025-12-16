@@ -30,27 +30,7 @@ const services = [
       },
     ],
   },
-  {
-    category: 'Marketing',
-    active: false,
-    items: [
-      {
-        title: 'Social Media Creatives & Management',
-        description:
-          'Eye-catching content and consistent social presence to grow and engage your audience.',
-      },
-      {
-        title: 'Meta Ads Campaigns',
-        description:
-          'Performance-driven ad campaigns on Facebook and Instagram to maximize ROI.',
-      },
-      {
-        title: 'WhatsApp API Solutions',
-        description:
-          'Automated messaging, customer support, and marketing through WhatsApp Business API.',
-      },
-    ],
-  },
+
 ];
 
 export default function Services() {
@@ -66,9 +46,9 @@ export default function Services() {
       {/* Subtle linear gradient background (dark only) */}
       <div className="absolute inset-0 bg-gradient-to-r from-[rgba(58,0,94,0.4)] via-transparent to-transparent" />
 
-      <div className="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-16">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Left column: Categories */}
-        <div className="flex flex-col space-y-6">
+        <div className="flex flex-col text-center space-y-6 ">
           <h2 className="text-sm uppercase tracking-wider text-zinc-400 mb-4">
             Our Services
           </h2>
@@ -91,7 +71,7 @@ export default function Services() {
         </div>
 
         {/* Right column: Expandable items */}
-        <div className="flex flex-col divide-y divide-zinc-800">
+        <div className="flex flex-col divide-y divide-zinc-800 mt-10 cursor-pointer">
           {activeService?.items.map((item, idx) => (
             <div key={idx} className="py-6">
               <button
